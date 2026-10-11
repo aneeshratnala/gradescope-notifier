@@ -21,6 +21,21 @@ STATE_FILE = Path(__file__).parent / "sent.json"
 LOCAL_TZ = ZoneInfo("America/Los_Angeles")
 BASE_URL = "https://www.gradescope.com"
 
+# Short names for the notification body: if the key appears in Gradescope's
+# course name, show the value instead. Unmatched courses show the full name.
+COURSE_NICKNAMES = {
+    "LS 7A": "7A",
+    "COM SCI-131": "131",
+    "M117": "M117",
+}
+
+
+def short_course_name(name):
+    for key, nickname in COURSE_NICKNAMES.items():
+        if key in name:
+            return nickname
+    return name
+
 
 def load_env_file():
     """Load a local .env file if present (for running on your laptop)."""
@@ -112,11 +127,10 @@ def main():
 
         crossed = [t for t in THRESHOLDS_HOURS if hours_left <= t]
         if crossed and any(t not in sent["sent"] for t in crossed):
-            due_local = a["due"].astimezone(LOCAL_TZ).strftime("%a %b %-d, %-I:%M %p")
             push(
                 topic,
                 title=f"Due in {hours_left:.0f}h: {a['name']}",
-                message=f"{a['course']} - due {due_local}",
+                message=short_course_name(a['course']),
                 click_url=a["url"],
                 priority="urgent" if min(crossed) <= 12 else "high",
             )
