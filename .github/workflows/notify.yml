@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main           # always latest code + sent.json, even when re-running an old run
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
@@ -30,12 +32,31 @@ jobs:
           CANVAS_ICS_URL: ${{ secrets.CANVAS_ICS_URL }}
       - name: Save which notifications were sent
         run: |
-          if ! git diff --quiet sent.json; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898732+github-actions[bot]@users.noreply.github.com"
+          # Keep this run's sent.json, then replay it on top of the latest main.
+          # Retries cover pushes that land mid-run (stale checkout -> "fetch first").
+          cp sent.json "$RUNNER_TEMP/sent.json"
+          for attempt in 1 2 3 4 5; do
+            if ! git fetch origin main; then
+              echo "Fetch failed (attempt $attempt); retrying..."
+              sleep $((attempt * 3))
+              continue
+            fi
+            git reset --hard origin/main
+            cp "$RUNNER_TEMP/sent.json" sent.json
+            if git diff --quiet -- sent.json; then
+              echo "sent.json unchanged; nothing to save."
+              exit 0
+            fi
             git add sent.json
             git commit -m "Update sent notifications"
-            # Someone may have pushed since checkout; keep this run's sent.json on conflict.
-            git pull --rebase -X theirs
-            git push
-          fi
+            # HEAD:main works even from a detached HEAD.
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); retrying..."
+            sleep $((attempt * 3))
+          done
+          echo "Could not save sent.json after 5 attempts." >&2
+          exit 1
