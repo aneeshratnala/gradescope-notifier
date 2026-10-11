@@ -1,4 +1,4 @@
-name: Gradescope deadline notifier
+name: Deadline notifier
 
 on:
   schedule:
@@ -27,6 +27,7 @@ jobs:
           GS_EMAIL: ${{ secrets.GS_EMAIL }}
           GS_PASSWORD: ${{ secrets.GS_PASSWORD }}
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          CANVAS_ICS_URL: ${{ secrets.CANVAS_ICS_URL }}
       - name: Save which notifications were sent
         run: |
           if ! git diff --quiet sent.json; then
