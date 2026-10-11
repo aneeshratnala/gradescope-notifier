@@ -35,7 +35,7 @@ def load_env_file():
 
 
 def push(topic, title, message, click_url=None, priority="high"):
-    headers = {"Title": title, "Priority": priority, "Tags": "alarm_clock"}
+    headers = {"Title": title, "Priority": priority}
     if click_url:
         headers["Click"] = click_url
     resp = requests.post(
