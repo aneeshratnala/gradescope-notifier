@@ -22,5 +22,70 @@
   "1416209:8803179": {
     "due": "2026-10-14T23:59:00-07:00",
     "sent": []
+  },
+  "canvas:event-assignment-2028227": {
+    "due": "2026-10-23T23:59:00-07:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028231": {
+    "due": "2026-10-25T23:59:00-07:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028233": {
+    "due": "2026-10-11T23:59:00-07:00",
+    "sent": [
+      12,
+      24
+    ]
+  },
+  "canvas:event-assignment-2028239": {
+    "due": "2026-10-18T23:59:00-07:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028267": {
+    "due": "2026-10-13T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028268": {
+    "due": "2026-10-15T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028270": {
+    "due": "2026-10-20T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028271": {
+    "due": "2026-10-20T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028272": {
+    "due": "2026-10-22T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028273": {
+    "due": "2026-10-22T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2028274": {
+    "due": "2026-10-22T16:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2045640": {
+    "due": "2026-12-10T23:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2045643": {
+    "due": "2026-10-16T19:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2056029": {
+    "due": "2026-10-12T19:00:00+00:00",
+    "sent": [
+      24
+    ]
+  },
+  "canvas:event-assignment-2056741": {
+    "due": "2026-10-28T19:30:00+00:00",
+    "sent": []
   }
 }
