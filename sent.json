@@ -21,7 +21,9 @@
   },
   "canvas:event-assignment-2028227": {
     "due": "2026-10-23T23:59:00-07:00",
-    "sent": []
+    "sent": [
+      24
+    ]
   },
   "canvas:event-assignment-2028231": {
     "due": "2026-10-25T23:59:00-07:00",
@@ -62,6 +64,7 @@
   "canvas:event-assignment-2045644": {
     "due": "2026-10-23T19:00:00+00:00",
     "sent": [
+      12,
       24
     ]
   },
