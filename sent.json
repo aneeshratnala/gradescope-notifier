@@ -17,7 +17,9 @@
   },
   "canvas:event-assignment-2028289": {
     "due": "2026-11-19T17:00:00+00:00",
-    "sent": []
+    "sent": [
+      24
+    ]
   },
   "canvas:event-assignment-2028291": {
     "due": "2026-11-24T17:00:00+00:00",
@@ -25,7 +27,9 @@
   },
   "canvas:event-assignment-2028292": {
     "due": "2026-11-19T17:00:00+00:00",
-    "sent": []
+    "sent": [
+      24
+    ]
   },
   "canvas:event-assignment-2028294": {
     "due": "2026-11-24T17:00:00+00:00",
@@ -33,6 +37,10 @@
   },
   "canvas:event-assignment-2045640": {
     "due": "2026-12-10T23:00:00+00:00",
+    "sent": []
+  },
+  "canvas:event-assignment-2068994": {
+    "due": "2026-11-23T20:00:00+00:00",
     "sent": []
   }
 }
